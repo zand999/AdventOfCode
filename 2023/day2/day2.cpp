@@ -19,13 +19,6 @@ int isPossible(string game){
     bool isPossible = true;
     struct providedbag bag;
     int r = 0, b = 0, g = 0;  
-    //cout << blocks << endl;
-    /*for(int k = 0; k < blocks.size(); k++){
-
-        cout << blocks.at(k);
-
-    }*/
-    //cout << blocks << "\n";
 
     string chunksleft = blocks;
 
@@ -113,11 +106,6 @@ int isPossible(string game){
 
     }
     cout << "\n";
-
-    
-    
-    
-
 
 
     return 1;
