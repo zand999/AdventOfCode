@@ -5,11 +5,7 @@
 #include <sstream>
 using namespace std;
 
-struct providedbag{ 
-  int red = 12; 
-  int green = 13;   
-  int blue = 14;
-};
+
 
 void doubleIt(int &var){
     if(var == 0){
