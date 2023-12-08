@@ -8,11 +8,6 @@ using namespace std;
 
 double* quadraicFormula(double a, double b,double c){
 
-    //-b ± squr(b^2-4ac)
-    //-------------
-    //2a
-
-
     double *ret = new double[2];
 
     ret[0] = (-b+sqrt((b*b)-(4*a*c)))/(2*a);
@@ -21,12 +16,9 @@ double* quadraicFormula(double a, double b,double c){
 
     return ret;
 
-    
 }
 
-
 int main(){
-
 
     double raceLn = 44806572;
     double recordInput = 208158110501102;
