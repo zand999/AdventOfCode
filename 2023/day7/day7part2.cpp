@@ -52,19 +52,30 @@ uint getHandStrength(uint *hand){
 
     uint cardTypes[CARDS_IN_HAND] = {0};
     uint amountOfCardTypes[CARDS_IN_HAND] = {0};
+    uint addatend = 0;
 
     for(int i = 0; i < CARDS_IN_HAND;i++){
-        for(int j = 0; j < CARDS_IN_HAND;j++){
-            if(cardTypes[j] == 0){
-                cardTypes[j] = hand[i];
-                amountOfCardTypes[j]++;
-                break;
-            }else if(cardTypes[j] == hand[i]){
-                amountOfCardTypes[j]++;
-                break;
+        if(hand[i]== 1){
+            
+            addatend++;
+
+        
+        }else{
+            for(int j = 0; j < CARDS_IN_HAND;j++){
+                if(cardTypes[j] == 0){
+                    cardTypes[j] = hand[i];
+                    amountOfCardTypes[j]++;
+                    break;
+                }else if(cardTypes[j] == hand[i]){
+                    amountOfCardTypes[j]++;
+                    break;
+                }
+
             }
 
         }
+    
+        
 
     }
     
@@ -72,17 +83,17 @@ uint getHandStrength(uint *hand){
     cout << " (" << amountOfCardTypes[0] << ","<< amountOfCardTypes[1]<< ","<< amountOfCardTypes[2]<< ","<< amountOfCardTypes[3]<< ","<< amountOfCardTypes[4] << ")";
    
 
-    if(amountOfCardTypes[0]==5){
+    if(amountOfCardTypes[0]+addatend ==5){
         return 7;
-    }else if(amountOfCardTypes[0]==4){
+    }else if(amountOfCardTypes[0]+addatend==4){
         return 6;
-    }else if(amountOfCardTypes[0] == 3 && amountOfCardTypes[1] == 2){
+    }else if((amountOfCardTypes[0] == 3 && amountOfCardTypes[1] == 2 )|| amountOfCardTypes[0]+addatend == 3 && amountOfCardTypes[1]==2){
         return 5;
-    }else if(amountOfCardTypes[0] == 3){
+    }else if(amountOfCardTypes[0]+addatend == 3){
         return 4;
-    }else if(amountOfCardTypes[0] == 2 && amountOfCardTypes[1] == 2){
+    }else if(amountOfCardTypes[0] == 2 && amountOfCardTypes[1]+addatend == 2 || addatend == 2){
         return 3;
-    }else if(amountOfCardTypes[0] == 2){
+    }else if(amountOfCardTypes[0] == 2 || addatend == 1){
         return 2;
     }else{
         return 1;
@@ -163,8 +174,7 @@ int main(){
         sort(hands, hands+1000);
 
         for(uint i = 0, startRank = 1000; i < 1000; i++,startRank--){
-            //cout << (hands[index] & 0x0000000000000FFF) << endl;
-            //total += ((hands[index] & 0x0000000000000FFF) * startRank);
+            
             cout << i+1 << ":"<< hex << hands[i] << ":" << (hands[i] & 0x0000000FFF) << dec << endl;
             bid = (hands[i] & 0x0000000FFF);
 
