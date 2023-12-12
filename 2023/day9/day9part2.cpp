@@ -48,43 +48,6 @@ long nextValue(long *list, int ln){
 
 }
 
-/*long nextValue(long *list, int ln, long &lastnum, long &total){
-
-    if(ln == 1){
-        return list[0];
-    }
-    for(int i = 0;i < ln;i++){
-        find0 += list[i];
-    }
-    if(find0 == 0){
-        return  0;
-    }
-
-    
-
-    long *intdiff = new long[ln-1];
-
-    for(int i = 0;i < ln-1;i++){
-        intdiff[i] = list[i+1] - list[i];
-    }
-
-    long retval = nextValue(intdiff, ln-1, list[ln-1]);
-    long nextval = retval + list[ln-1];
-    total += nextval
-
-    free(intdiff);
-    
-
-    return nextval;
-
-}
-
-long getNextValue(long *list, int ln){
-    long val = 0, ;
-
-    return 
-}*/
-
 
 int main(){
 
